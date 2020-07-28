@@ -1,69 +1,32 @@
+"""
+1)ex 1
+pessoa=[{'nome':str(input('nome')),'idade':int(input('idade'))}]
+print(pessoa)
+alterarnome=str(input('nome:'))
+for c in range(len(pessoa)):
+  if alterarnome in pessoa[c]['nome']:
+    pessoa[c]['nome']=str(input('nome:'))
+
+print(pessoa)
+
+
+2)ex 2
 cadastro=[]
-def cadastrando(**kwargs):
-  kwargs['nome']=str(input('nome:')).strip().title()
-  kwargs['idade']=int(input('idade:'))
-  kwargs['sexo']=str(input('sexo[f/m]:')).strip().lower()[0]
-  while kwargs['sexo']!='f' and kwargs['sexo']!='m':
-    print('sexo invalido,digite novamente!!!')
-    kwargs['sexo']=str(input('sexo:')).strip().lower()[0]
-  cadastro.append(kwargs)
+nome=str(input('nome:'))
+idade=int(input('idade:'))
+cadastrando=lambda n,i:cadastro.append([n,i])
+cadastrando(nome,idade)
+print(cadastro)
 
-def ver_lista():
-  if len(cadastro)==0:
-    print('nao tem ninguem no cadastro')
-  else:
-    [{print(f'{x}={z}')for x,z in c.items()}for c in cadastro]
-    
-def ver_dados():
-  nome=str(input('nome:')).title()
-  pessoa=[{print(f'{x}={z}')for x,z in cadastro[c].items()}for c in range(len(cadastro)) if nome in cadastro[c]['nome']]
-  if len(pessoa)==0:
-    print(f'{nome} nao esta no cadastro')
-  elif len(cadastro)==0:
-    print('nao tem ninguem no cadastro')
-
-def menu(opcao):
-  if opcao==-1:
-    print('0:SAIR')
-    print('1:CADASTRAR')
-    print('2:VER CADASTRO COMPLETO')
-    print('3:VER DADOS DE UMA PESSOA')
-    print('4:VER SO HOMENS NO CADASTRO')
-    print('5:VER SO MULHERES NO CADASTRO')
-  if opcao==1:
-    cadastrando()
-  if opcao==2:
-    ver_lista()
-  if opcao==3:
-    ver_dados()
-  if opcao==4:
-    x=(list(filter(lambda x:x['sexo']=='m',cadastro)))
-    if len(cadastro)==0:
-        print('nao tem ninguem no cadastro')
-    else:
-      if len(x)==0:
-        print('nao tem homem cadastro')
-      else:
-        [{print(f'{xx}={z}')for xx,z in c.items()}for c in x]
-  if opcao==5:
-    y=(list(filter(lambda x:x['sexo']=='f',cadastro)))
-    if len(cadastro)==0:
-        print('nao tem ninguem no cadastro')
-    else:
-      if len(y)==0:
-        print('nao tem mulher cadastro')
-      else:
-        [{print(f'{xx}={z}')for xx,z in c.items()}for c in y]
+3)ex 3
+cadastro=[]
+nome=str(input('nome:'))
+idade=int(input('idade:'))
+cadastrando=lambda n,i:{'nome':n,'idade':i}
+cadastro.append(cadastrando(nome,idade))
+print(cadastro)
+[{print(f'{x}={z}')for x,z in c.items()}for c in cadastro]
 
 
-  
-opc=-1
-print('DIGITE -1 PARA VER AS OPCOES DE ESCOLHA')
-while True:
-  menu(opc)
-  opc=int(input('opcao:'))
-  if opc==0:
-    break
+"""
 
-  
-  
