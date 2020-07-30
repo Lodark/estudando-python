@@ -1,0 +1,86 @@
+"""
+1)ex 1
+pessoa=[{'nome':str(input('nome')),'idade':int(input('idade'))}]
+print(pessoa)
+alterarnome=str(input('nome:'))
+for c in range(len(pessoa)):
+  if alterarnome in pessoa[c]['nome']:
+    pessoa[c]['nome']=str(input('nome:'))
+
+print(pessoa)
+
+
+2)ex 2
+cadastro=[]
+nome=str(input('nome:'))
+idade=int(input('idade:'))
+cadastrando=lambda n,i:cadastro.append([n,i])
+cadastrando(nome,idade)
+print(cadastro)
+
+3)ex 3
+cadastro=[]
+nome=str(input('nome:'))
+idade=int(input('idade:'))
+cadastrando=lambda n,i:{'nome':n,'idade':i}
+cadastro.append(cadastrando(nome,idade))
+print(cadastro)
+[{print(f'{x}={z}')for x,z in c.items()}for c in cadastro]
+
+4)
+
+from random import randint
+
+n=[randint(1,20)for c in range(5)]
+print(n)
+print(list(map(lambda x:x*2,n)))
+
+cadastro=[]
+while True:
+  pessoa={'nome':str(input('nome')),'idade':int(input('idade:'))}
+  if pessoa['idade']==0:
+    break
+  cadastro.append(pessoa.copy())
+  pessoa.clear
+
+print(cadastro)
+x=list(map(lambda x:{x['nome'],x['idade']*2},cadastro))
+print(x)
+
+5)
+
+cadastro=[]
+while True:
+  pessoa={'nome':str(input('nome:')),'idade':int(input('idade:'))}
+  if pessoa['idade']==0:
+    break
+  cadastro.append(pessoa.copy())
+  pessoa.clear
+
+print(cadastro)
+print(list(filter(lambda x:x['idade']%2==0,cadastro)))
+
+
+
+from random import randint
+
+n=[randint(1,20)for c in range(5)]
+print(n)
+print([t for t in n if t%2==0])
+par=all([num for num in n if num%2==0])
+print(par)
+if par==True:
+  print('todos sao pares')
+
+"""
+
+cadastro=[]
+while True:
+  pessoa={'nome:':str(input('nome')),'idade':int(input('idade:'))}
+  if pessoa['idade']==0:
+    break
+  cadastro.append(pessoa.copy())
+  
+
+print(cadastro)
+print(sorted(cadastro,key=lambda x:x['idade']))
